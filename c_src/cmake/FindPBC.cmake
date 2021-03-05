@@ -15,13 +15,12 @@ ExternalProject_Add(pbc
   UPDATE_COMMAND    ""
   BUILD_IN_SOURCE   1
   CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf &&
-                    ./configure
+                    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/configure.sh
                     --prefix=${CMAKE_CURRENT_BINARY_DIR}
                     --with-pic
                     --disable-shared
                     --enable-optimized
                     --enable-safe-clean
-                    $ENV{CONFIGURE_ARGS}
                     CC=${CMAKE_C_COMPILER}
                     CFLAGS=${CMAKE_C_FLAGS_${BUILD_TYPE_UC}}
                     CPPFLAGS=-I${GMP_INCLUDE_DIR}
