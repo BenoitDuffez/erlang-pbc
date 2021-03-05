@@ -23,6 +23,12 @@ IF (APPLE)
   set(APPLE_SDKROOT_ENV "SDKROOT=${APPLE_SDK_ROOT}")
 ENDIF()
 
+# Toolchain file?
+IF(DEFINED ENV{CMAKE_TOOLCHAIN_FILE})
+  include($ENV{CMAKE_TOOLCHAIN_FILE})
+ENDIF()
+
+
 #
 # Enable sanitization if environment variable is set
 #
